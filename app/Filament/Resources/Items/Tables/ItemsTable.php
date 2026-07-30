@@ -20,7 +20,7 @@ class ItemsTable
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('price')
-                    ->money()
+                    ->money('Rp.')
                     ->sortable(),
                 TextColumn::make('stock')
                     ->numeric()

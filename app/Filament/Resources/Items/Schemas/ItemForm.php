@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Items\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\Select;
 
 class ItemForm
 {
@@ -11,15 +12,16 @@ class ItemForm
     {
         return $schema
             ->components([
-                TextInput::make('category_id')
-                    ->required()
-                    ->numeric(),
+                Select::make('Category_id')
+                    ->relationship('category', 'name')
+                    ->searchable()
+                    ->required(),
                 TextInput::make('name')
                     ->required(),
                 TextInput::make('price')
                     ->required()
                     ->numeric()
-                    ->prefix('$'),
+                    ->prefix('Rp.'),
                 TextInput::make('stock')
                     ->required()
                     ->numeric(),
